@@ -13,7 +13,8 @@ char add_dnodeint(vars_t *list, stack_t **head)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		return (0);
+        fprintf(stderr, "Error: malloc failed");
+        exit(EXIT_FAILURE);
 	}
 	new_node->n = atoi(list->tokens[1]);
 	new_node->next = *head;

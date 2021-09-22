@@ -16,7 +16,13 @@ int main( __attribute__((unused)) int argc, char **argv)
 	char *delim = "\n";
 	char (*f)(vars_t *r, stack_t **p);
 	int a;
+
 	stack_t *head = NULL;
+    if (argc != 2)
+    {
+        fprintf(stderr, "USAGE: monty file\n");
+        exit(EXIT_FAILURE);
+    }
 	vars.buffer = file_read(argv[1]);
 	/* push 3 \n push 4  \n pall \n pop \n */
 	vars.arrays = tokenizer(vars.buffer, delim);
@@ -36,7 +42,8 @@ int main( __attribute__((unused)) int argc, char **argv)
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{
-				printf("No available function");
+                fprintf(stderr, "L%d: unknown instruction %s\n", a + 1, vars.arrays[a]);
+                exit(EXIT_FAILURE);
 			} else
 			{
 				f(&vars, &head);

@@ -14,7 +14,8 @@ char **tokenizer(char *buffer, char *delimiter)
 	tokens = malloc(sizeof(char *) * m);
 	if (tokens == NULL)
 	{
-		return (NULL);
+        fprintf(stderr, "Error: realloc failed");
+		exit(EXIT_FAILURE);
 	}
 	while(*buffer == ' ')
 	{
@@ -25,10 +26,13 @@ char **tokenizer(char *buffer, char *delimiter)
 		i++;
 		if (i >= m)
 		{
-			ptr = realloc(tokens, 8 * (i + 1));
+			ptr = _realloc(tokens, 8 * i, 8 * (i + 1));
 			tokens = ptr;
 			if (tokens == NULL)
-				return (NULL);
+            {
+                fprintf(stderr, "Error: realloc failed");
+                exit(EXIT_FAILURE);
+            }
 		}
 		buffer = NULL;
 	}
@@ -70,4 +74,68 @@ char *str_tok(char *buffer, char *d)
 	save = NULL;
 	buffer = NULL;
 	return (NULL);
+}
+
+void *_realloc(void *ptr, size_t old_size, size_t new_size)
+{
+	void *result;
+
+	if (new_size == old_size)
+		return (ptr);
+	if (new_size == 0 && ptr)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	result = malloc(new_size);
+	if (result == NULL)
+    {
+        fprintf(stderr, "Error: malloc failed");
+        exit(EXIT_FAILURE);
+    }
+	if (ptr == NULL)
+	{
+		fill_an_array(result, '\0', new_size);
+		free(ptr);
+	}
+	else
+	{
+		_memcpy(result, ptr, old_size);
+		free(ptr);
+	}
+	return (result);
+}
+
+
+void *fill_an_array(void *str, char c, size_t len)
+{
+	char *p = str;
+	unsigned int i = 0;
+
+	while (i < len)
+	{
+		*p = c;
+		p++;
+		i++;
+	}
+	return (str);
+}
+
+/**
+ * _memcpy - cpies memory area
+ * @dest: Destination memory area
+ * @src: Source memory area
+ * @n: Amount of memory byte
+ *
+ * Return: A pointer to dest
+ */
+void *_memcpy(char *dest, char *src,size_t n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		dest[i] = src[i];
+	}
+	return (dest);
 }

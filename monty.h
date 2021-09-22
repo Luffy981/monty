@@ -35,6 +35,7 @@ typedef struct arguments
 	char *buffer;
 	char **arrays;
 	char **tokens;
+    int line_number;
 } vars_t;
 
 typedef struct words
@@ -54,7 +55,7 @@ char *str_tok(char *buffer, char *d);
 char **tokenizer(char *buffer, char *delimiter);
 char (*get_op_fuctions(vars_t *m, stack_t **r))(vars_t *n, stack_t **r);
 void free_dlistint(stack_t *head);
-
+int check_int(char *str);
 
 
 

@@ -14,7 +14,7 @@ char **tokenizer(char *buffer, char *delimiter)
 	tokens = malloc(sizeof(char *) * m);
 	if (tokens == NULL)
 	{
-        fprintf(stderr, "Error: realloc failed");
+        fprintf(stderr, "Error: realloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	while(*buffer == ' ')
@@ -30,7 +30,7 @@ char **tokenizer(char *buffer, char *delimiter)
 			tokens = ptr;
 			if (tokens == NULL)
             {
-                fprintf(stderr, "Error: realloc failed");
+                fprintf(stderr, "Error: realloc failed\n");
                 exit(EXIT_FAILURE);
             }
 		}
@@ -90,7 +90,7 @@ void *_realloc(void *ptr, size_t old_size, size_t new_size)
 	result = malloc(new_size);
 	if (result == NULL)
     {
-        fprintf(stderr, "Error: malloc failed");
+        fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
 	if (ptr == NULL)

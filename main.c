@@ -38,11 +38,12 @@ int main( __attribute__((unused)) int argc, char **argv)
 	{
 		for(a = 0 ; vars.arrays[a]  != NULL ; a++)
 		{
+            vars.line_number = a + 1;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{
-                fprintf(stderr, "L%d: unknown instruction %s\n", a + 1, vars.arrays[a]);
+                fprintf(stderr, "L%d: unknown instruction %s\n", vars.line_number, vars.arrays[a]);
                 exit(EXIT_FAILURE);
 			} else
 			{

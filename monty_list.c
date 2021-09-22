@@ -13,9 +13,14 @@ char add_dnodeint(vars_t *list, stack_t **head)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-        fprintf(stderr, "Error: malloc failed");
+        fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
 	}
+    if (list->tokens[1] == NULL || check_int(list->tokens[1]) == 0)
+    {
+        fprintf(stderr, "L%d: usage: push integer\n", list->line_number);
+        exit(EXIT_FAILURE);
+    }
 	new_node->n = atoi(list->tokens[1]);
 	new_node->next = *head;
 	new_node->prev = NULL;
@@ -25,6 +30,19 @@ char add_dnodeint(vars_t *list, stack_t **head)
 	}
 	*head = new_node;
 	return(1);
+}
+int check_int(char *str)
+{
+    int i = 0;
+    while(str[i] != '\0')
+    {
+        if (str[i] < 47 || str[i] > 57)
+        {
+            return (0);
+        }
+        i++;
+    }
+    return (1);
 }
 /**
  * print_dlistint - function to print all the elements of a list_t list

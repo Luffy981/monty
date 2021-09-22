@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define UNUSED(x)  (void)(x)
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,25 +35,24 @@ typedef struct arguments
 	char *buffer;
 	char **arrays;
 	char **tokens;
-	char *head;
 } vars_t;
 
 typedef struct words
 {
 	char *word;
-	void (*f)(vars_t);
+	char (*f)(vars_t *, stack_t **);
 } word_t;
 
+int main(int argc, char **argv);
 char *file_read(char *filename);
-vars_t *add_dnodeint(vars_t *list);
-size_t print_dlistint(vars_t *list);
+char add_dnodeint(vars_t *list, stack_t **);
+char  print_dlistint(vars_t *list, stack_t **);
 void *fill_an_array(void *str, char c, size_t len);
 void *_memcpy(char *dest, char *src, size_t n);
 void *_realloc(void *str, size_t old_size, size_t new_size);
 char *str_tok(char *buffer, char *d);
-void (*get_op_fuctions(vars_t *m))(vars_t *n);
-int main(int argc, char **argv, char **env);
 char **tokenizer(char *buffer, char *delimiter);
+char (*get_op_fuctions(vars_t *m, stack_t **r))(vars_t *n, stack_t **r);
 
 
 #endif

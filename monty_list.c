@@ -6,24 +6,24 @@
  *
  * Return: Return count
  */
-vars_t *add_dnodeint(vars_t *list)
+char add_dnodeint(vars_t *list, stack_t **head)
 {
-	stack_t *new_node = list->head;
+	stack_t *new_node = *head;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		return (NULL);
+		return (0);
 	}
 	new_node->n = atoi(list->tokens[1]);
-	new_node->next = list->head;
+	new_node->next = *head;
 	new_node->prev = NULL;
 	if (new_node->next != NULL)
 	{
 		new_node->next->prev = new_node;
 	}
-	list->head = new_node;
-	return (list);
+	*head = new_node;
+	return(1);
 }
 /**
  * print_dlistint - function to print all the elements of a list_t list
@@ -31,17 +31,18 @@ vars_t *add_dnodeint(vars_t *list)
  *
  * Return: Return count
  */
-size_t print_dlistint(vars_t *list)
+char  print_dlistint(__attribute__((unused))vars_t *list, stack_t **head)
 {
 	int count = 0;
-
-	while (list->head != NULL)
+	
+    stack_t *node = *head;
+    while (node != NULL)
 	{
-		printf("%d\n", list->head->n);
-		list->head = list->head->next;
+		printf("%d\n", node->n);
+		node = node->next;
 		count++;
 	}
-	return (count);
+	return(0);
 }
 /**
  * get_dnodeint_at_index  - function to add elements to list

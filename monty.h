@@ -53,6 +53,9 @@ void *_realloc(void *str, size_t old_size, size_t new_size);
 char *str_tok(char *buffer, char *d);
 char **tokenizer(char *buffer, char *delimiter);
 char (*get_op_fuctions(vars_t *m, stack_t **r))(vars_t *n, stack_t **r);
+void free_dlistint(stack_t *head);
+
+
 
 
 #endif

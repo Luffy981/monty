@@ -1,9 +1,18 @@
 #include "monty.h"
+void free_dlistint(stack_t *head)
+{
+	stack_t *tmp = head;
 
+	if (head == NULL)
+	{
+		return;
+	}
+	free_dlistint(head->next);
+	free(tmp);
+}
 int main( __attribute__((unused)) int argc, char **argv)
 {
 	vars_t vars = {NULL};
-	char **tokens = NULL;
 	char *delim = "\n";
 	char (*f)(vars_t *r, stack_t **p);
 	int a;
@@ -32,8 +41,11 @@ int main( __attribute__((unused)) int argc, char **argv)
 			{
 				f(&vars, &head);
 			}
-			free(tokens);
+            free(vars.tokens);
 		}
 	}
+    free(vars.arrays);
+    free(vars.buffer);
+    free_dlistint(head);
 	return(1);
 }

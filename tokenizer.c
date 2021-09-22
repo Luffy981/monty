@@ -20,7 +20,7 @@ char **tokenizer(char *buffer, char *delimiter)
 	{
 		buffer++;
 	}
-	while((tokens[i] = strtok(buffer, delimiter)) != NULL)
+	while((tokens[i] = str_tok(buffer, delimiter)) != NULL)
 	{
 		i++;
 		if (i >= m)
@@ -47,6 +47,7 @@ char *str_tok(char *buffer, char *d)
 		{
 			buffer++;
 		}
+        set = buffer;
 		if(!*set)
 		{
 			save = '\0';
@@ -57,7 +58,7 @@ char *str_tok(char *buffer, char *d)
 			{
 				set++;
 			}
-			if (!*set != '\0')
+			if (*set != '\0')
 			{
 				*set = '\0';
 				set++;

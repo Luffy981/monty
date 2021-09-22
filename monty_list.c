@@ -2,6 +2,7 @@
 /**
  * add_dnodeint - function to add elements to list
  * @head: Pointer of type list_t
+ *
  * @n: Pointer of type list_t
  *
  * Return: Return count
@@ -70,22 +71,19 @@ char  print_dlistint(__attribute__((unused))vars_t *list, stack_t **head)
  *
  * Return: Return count
  */
-/*dlistint_t *print_nodeint_at_stack(dlistint_t *head, unsigned int index)
+char print_nodeint_at_stack(vars_t *vars, stack_t **head)
 {
-	unsigned int i;
-
-	for (i = 1; i <= index; i++)
-	{
-		if (head == NULL)
-		{
-      printf("L<line_number>: can't pint, stack empty")
-			exit(EXIT_FAILURE);
-		}
-		head = head->next;
-    printf("%d\n", head->n);
-	}
-	return (head);
-}*/
+    stack_t *node = *head;
+    
+    UNUSED(vars);
+	if (node == NULL)
+    {
+        printf("L%d: can't pint, stack empty\n", vars->line_number);
+        exit(EXIT_FAILURE);
+    }
+    printf("%d\n", node->n);
+    return (0);
+}
 
 /**
  * delete_dnodeint_at_index - function to delete node at index
@@ -94,36 +92,47 @@ char  print_dlistint(__attribute__((unused))vars_t *list, stack_t **head)
  *
  * Return: Return count
  */
-/*int pop_nodeint_at_stack(dlistint_t **head, unsigned int index)
+char pop_nodeint_at_stack(vars_t *vars, stack_t **head)
 {
-	dlistint_t *tmp;
-	unsigned int counter = 0;
+	stack_t *tmp;
 
+    UNUSED(vars);
 	if (head == NULL || *head == NULL)
-		return (-1);
+    {
+        fprintf(stderr, "L%d: can't pop an empty stack\n", vars->line_number);
+    }
 	tmp = *head;
-	if (index == 0)
-	{
-		*head = tmp->next;
-		if (tmp->next != NULL)
-		{
-			tmp->next->prev = NULL;
-		}
-		free(tmp);
-		return (1);
-	}
-
-	while (counter < index)
-	{
-		if (tmp->next == NULL)
-			return (-1);
-		tmp = tmp->next;
-		counter++;
-	}
-	tmp->prev->next = tmp->next;
+	*head = tmp->next;
 	if (tmp->next != NULL)
-		tmp->next->prev = tmp->prev;
-	free(tmp);
-	return (1);
+    {
+        tmp->next->prev = NULL;
+    }
+    free(tmp);
+    return (1);
 }
-EXIT_FAILURE*/
+
+char add_monty(vars_t *vars, stack_t **head)
+{
+    int sum = 0;
+    stack_t *node = *head;
+    stack_t *tmp = *head;
+
+    if (node->next == NULL || node == NULL)
+    {
+        fprintf(stderr, "L%d: can't add, stack too short\n", vars->line_number);
+        exit(EXIT_FAILURE);
+    }
+    sum = node->n + node->next->n;
+    node->next->n = sum;
+    *head = node->next;
+    node->next->prev = NULL;
+    free(tmp);
+    return (0);
+}
+
+char nop_monty(vars_t *vars, stack_t ** head)
+{
+    UNUSED(vars);
+    UNUSED(head);
+    return(0);
+}

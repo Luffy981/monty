@@ -8,6 +8,10 @@ char (*get_op_fuctions(vars_t *m, stack_t **r))(vars_t *n, stack_t **r)
     word_t op[] = {
 		{"push", add_dnodeint},
 		{"pall", print_dlistint},
+        {"pint", print_nodeint_at_stack},
+        {"pop", pop_nodeint_at_stack},
+        {"add", add_monty},
+        {"nop", nop_monty},
 		{NULL, NULL},
 	};
     UNUSED(r);

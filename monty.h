@@ -56,7 +56,8 @@ char **tokenizer(char *buffer, char *delimiter);
 char (*get_op_fuctions(vars_t *m, stack_t **r))(vars_t *n, stack_t **r);
 void free_dlistint(stack_t *head);
 int check_int(char *str);
-
-
-
+char print_nodeint_at_stack(vars_t *vars, stack_t **head);
+char pop_nodeint_at_stack(vars_t *vars, stack_t **head);
+char add_monty(vars_t *vars, stack_t **head);
+char nop_monty(vars_t *vars, stack_t ** head);
 #endif

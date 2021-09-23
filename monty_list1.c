@@ -87,7 +87,7 @@ char div_monty(vars_t *vars, stack_t **head)
 		fprintf(stderr, "L%d: division by zero\n", vars->line_number);
 		exit(EXIT_FAILURE);
 	}
-	div = node->n / node->next->n;
+	div = node->next->n / node->n;
 	node->next->n = div;
 	*head = node->next;
 	node->next->prev = NULL;

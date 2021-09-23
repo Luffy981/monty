@@ -24,7 +24,7 @@ char mod_monty(vars_t *vars, stack_t **head)
 		exit(EXIT_FAILURE);
 	}
 
-	mod = node->n % node->next->n;
+	mod = node->next->n % node->n;
 	node->next->n = mod;
 	*head = node->next;
 	node->next->prev = NULL;

@@ -47,6 +47,10 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			vars.line_number = a + 1;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
+            if (vars.tokens[0][0] == '#')
+            {
+                continue;
+            }
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{

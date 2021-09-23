@@ -1,4 +1,16 @@
 #include "monty.h"
+char push_monty(vars_t *vars, stack_t **head)
+{
+    if(strcmp(vars->mode, "stack") == 0)
+    {
+        add_dnodeint(vars, head);
+    } else
+    {
+        add_node_end(vars, head);
+    }
+    return(0);
+}
+
 /**
  * add_dnodeint - function to add elements to list
  * @head: Pointer of type list_t

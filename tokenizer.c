@@ -23,7 +23,7 @@ char **tokenizer(char *buffer, char *delimiter)
 		fprintf(stderr, "Error: realloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	while (*buffer == ' ')
+	while (*buffer == ' ' || *buffer == '\t')
 	{
 		buffer++;
 	}
@@ -71,7 +71,7 @@ char *str_tok(char *buffer, char *d)
 		} else
 		{
 			string = set;
-			while (*set != *d && *(set) != *(d + 1) && *set != '\0')
+			while (*set != *d  && *set != '\0')
 			{
 				set++;
 			}

@@ -36,6 +36,7 @@ typedef struct arguments
 	char **arrays;
 	char **tokens;
     int line_number;
+    char *mode;
 } vars_t;
 
 typedef struct words
@@ -60,4 +61,25 @@ char print_nodeint_at_stack(vars_t *vars, stack_t **head);
 char pop_nodeint_at_stack(vars_t *vars, stack_t **head);
 char add_monty(vars_t *vars, stack_t **head);
 char nop_monty(vars_t *vars, stack_t ** head);
+char sub_monty(vars_t *vars, stack_t **head);
+char div_monty(vars_t *vars, stack_t **head);
+char mul_monty(vars_t *vars, stack_t **head);
+char mod_monty(vars_t *vars, stack_t **head);
+char comment_monty(vars_t *vars, stack_t **head);
+char pchar_monty(vars_t *vars, stack_t **head);
+
+char swap_monty(vars_t *vars, stack_t **head);
+char pstr_monty(vars_t *vars, stack_t **head);
+char rotl_monty(vars_t *vars, stack_t **head);
+char rotr_monty(vars_t *vars, stack_t **head);
+char add_node_end(vars_t *vars, stack_t **head);
+char mode_monty(vars_t *vars, stack_t **head);
+char push_monty(vars_t *vars, stack_t **head);
+
+
+
+
+
+int len_stack(stack_t **head);
+
 #endif

@@ -12,8 +12,10 @@ char mod_monty(vars_t *vars, stack_t **head)
 	int mod = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
+    int count;
+    count = len_stack(&*head);
 
-	if (node->next == NULL || node == NULL)
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);

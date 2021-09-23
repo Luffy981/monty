@@ -11,8 +11,11 @@ char add_monty(vars_t *vars, stack_t **head)
 	int sum = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
+    int count;
 
-	if (node->next == NULL || node == NULL)
+    count = len_stack(&*head);
+
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);
@@ -50,8 +53,11 @@ char sub_monty(vars_t *vars, stack_t **head)
 	int sub = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
+    int count;
 
-	if (node->next == NULL || node == NULL)
+    count = len_stack(&*head);
+
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);
@@ -76,8 +82,10 @@ char div_monty(vars_t *vars, stack_t **head)
 	int div = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
+    int count;
+    count = len_stack(&*head);
 
-	if (node->next == NULL || node == NULL)
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);
@@ -107,8 +115,10 @@ char mul_monty(vars_t *vars, stack_t **head)
 	int mul = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
+    int count;
+    count = len_stack(&*head);
 
-	if (node->next == NULL || node == NULL)
+	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);

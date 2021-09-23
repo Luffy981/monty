@@ -10,9 +10,11 @@ char rotl_monty(vars_t *vars, stack_t **head)
 {
 	stack_t *tmp = *head;
 	stack_t *set = *head;
+    if(tmp == NULL)
+        return(0);
 
 	UNUSED(vars);
-	*head = tmp->next;
+    *head = tmp->next;
 	(*head)->prev = NULL;
 	while (set->next != NULL)
 	{

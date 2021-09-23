@@ -18,7 +18,6 @@ void free_dlistint(stack_t *head)
 
 /**
  * main - Main function
- *
  * @argc: Number of arguments
  * @argv: Array of arguments of main.
  * Return: 1 if succes
@@ -46,13 +45,11 @@ int main(__attribute__((unused)) int argc, char **argv)
 		for (a = 0 ; vars.arrays[a]  != NULL ; a++)
 		{
 			vars.line_number = a + 1;
-            if(strcmp(vars.arrays[a], "salto") == 0)
-                continue;
+			if (strcmp(vars.arrays[a], "salto") == 0)
+				continue;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
-            if (vars.tokens[0][0] == '#')
-            {
-                continue;
-            }
+			if (vars.tokens[0][0] == '#')
+				continue;
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{

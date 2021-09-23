@@ -29,7 +29,6 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *delim = "\n";
 	char (*f)(vars_t *r, stack_t **p);
 	int a;
-
 	stack_t *head = NULL;
 
 	if (argc != 2)
@@ -38,18 +37,9 @@ int main(__attribute__((unused)) int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	vars.buffer = file_read(argv[1]);
-	/* push 3 \n push 4  \n pall \n pop \n */
 	vars.arrays = tokenizer(vars.buffer, delim);
-	/*
-	 * push 3
-	 * push 4
-	 * pall
-	 * pop
-	 */
 	if (vars.arrays == NULL)
-	{
 		printf("Data invalid");
-	}
 	else
 	{
 		for (a = 0 ; vars.arrays[a]  != NULL ; a++)
@@ -59,13 +49,12 @@ int main(__attribute__((unused)) int argc, char **argv)
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", vars.line_number, vars.arrays[a]);
+				fprintf(stderr, "L%d: unknown instruction %s\n",
+					vars.line_number, vars.arrays[a]);
 				exit(EXIT_FAILURE);
 			}
 			else
-			{
 				f(&vars, &head);
-			}
 			free(vars.tokens);
 		}
 	}

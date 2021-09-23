@@ -57,18 +57,18 @@ char pchar_monty(vars_t *vars, stack_t **head)
 {
 	stack_t *node = *head;
 
-	UNUSED(vars);
+    if (node == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", vars->line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	if (node->n < 0 || node->n > 255)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range", vars->line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (node == NULL)
-	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", vars->line_number);
-		exit(EXIT_FAILURE);
-	}
-	putchar(node->n);
+		putchar(node->n);
 	putchar('\n');
 	return (0);
 }

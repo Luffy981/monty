@@ -1,36 +1,51 @@
 #include "monty.h"
+
+/**
+ * rotl_monty - rotates the stack to the bottom
+ * @vars: pointer type vars_t
+ * @head: double pointer type stack_t
+ * Return: 0
+ */
 char rotl_monty(vars_t *vars, stack_t **head)
 {
 	stack_t *tmp = *head;
 	stack_t *set = *head;
+
 	UNUSED(vars);
 	*head = tmp->next;
 	(*head)->prev = NULL;
-	while(set->next != NULL)
+	while (set->next != NULL)
 	{
 		set = set->next;
 	}
 	set->next = tmp;
 	tmp->prev = set;
 	tmp->next = NULL;
-	return(0);
+	return (0);
 }
+/**
+ * rotr_monty - reverse stack
+ * @vars: pointer type vars_t
+ * @head: double pointer type stack_t
+ * Return: 0
+ */
 char rotr_monty(vars_t *vars, stack_t **head)
 {
 	int i = 0;
 	int count = 0;
 	stack_t *node = *head;
 	stack_t *vodka = NULL;
+
 	UNUSED(vars);
-	if(node == NULL)
-		return(0);
-	while(node->next != NULL)
+	if (node == NULL)
+		return (0);
+	while (node->next != NULL)
 	{
 		node = node->next;
 		count++;
 	}
 	*head = node;
-	while(i < count)
+	while (i < count)
 	{
 		vodka = node->prev;
 		vodka->next = NULL;
@@ -41,23 +56,28 @@ char rotr_monty(vars_t *vars, stack_t **head)
 	}
 	i = 0;
 	node = *head;
-	while(i < count)
+	while (i < count)
 	{
-	  
 		vodka = node->next;
 		vodka->prev = node;
-		node =node->next;
+		node = node->next;
 		vodka = vodka->next;
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
+/**
+ * add_node_end - add stack at the end
+ * @vars: pointer type vars_t
+ * @head: double pointer type stack_t
+ * Return: 0
+ */
 char add_node_end(vars_t *vars, stack_t **head)
 {
 	stack_t *new_node = NULL;
 	stack_t *vodka = *head;
-	
+
 	UNUSED(vars);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -81,15 +101,22 @@ char add_node_end(vars_t *vars, stack_t **head)
 	new_node->prev = vodka;
 	return (0);
 }
+/**
+ * mode_monty - sets the format of the data to a stack (LIFO) and
+ * sets the format of the data to a queue (FIFO
+ * @vars: pointer type vars_t
+ * @head: double pointer type stack_t
+ * Return: 0
+ */
 char mode_monty(vars_t *vars, stack_t **head)
 {
 	UNUSED(head);
-	if(strcmp("stack",vars->tokens[0]) == 0)
+	if (strcmp("stack", vars->tokens[0]) == 0)
 	{
-	    vars->mode = "stack";
+		vars->mode = "stack";
 	} else
 	{
-        vars->mode = "queque";
+		vars->mode = "queque";
 	}
-	return(0);
+	return (0);
 }

@@ -46,6 +46,8 @@ int main(__attribute__((unused)) int argc, char **argv)
 		for (a = 0 ; vars.arrays[a]  != NULL ; a++)
 		{
 			vars.line_number = a + 1;
+            if(strcmp(vars.arrays[a], "salto") == 0)
+                continue;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
             if (vars.tokens[0][0] == '#')
             {

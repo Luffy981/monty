@@ -62,6 +62,14 @@ char *str_tok(char *buffer, char *d)
 	{
 		while (*buffer == ' ' || *buffer == '\n' || *buffer == '\t')
 		{
+            if(*buffer == '\n')
+            {
+                set = buffer;
+                set++;
+                string = "salto";
+                save= set;
+                return(string);
+            }
 			buffer++;
 		}
 		set = buffer;

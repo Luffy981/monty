@@ -10,7 +10,9 @@ char rotl_monty(vars_t *vars, stack_t **head)
 {
 	stack_t *tmp = *head;
 	stack_t *set = *head;
-    if(tmp == NULL)
+    int count;
+    count = len_stack(&*head);
+    if(count < 2)
         return(0);
 
 	UNUSED(vars);

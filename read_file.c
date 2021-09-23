@@ -14,7 +14,7 @@ char *file_read(char *filename)
 
 	if (filename == NULL)
 		return (NULL);
-	fd = open(filename, O_CREAT | O_RDONLY, 600);
+	fd = open(filename, O_RDONLY, 600);
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);

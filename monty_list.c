@@ -59,7 +59,7 @@ int check_int(char *str)
 {
 	int i = 0;
     
-    if (atoi(str) < 0)
+    if (atoi(str) < 0 || str[i] == '-')
     {
         i++;
     }

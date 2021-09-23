@@ -62,7 +62,7 @@ char sub_monty(vars_t *vars, stack_t **head)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", vars->line_number);
 		exit(EXIT_FAILURE);
 	}
-	sub = abs(node->n - node->next->n);
+	sub = node->next->n - node->n;
 	node->next->n = sub;
 	*head = node->next;
 	node->next->prev = NULL;

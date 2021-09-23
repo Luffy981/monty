@@ -46,7 +46,7 @@ char pstr_monty(vars_t *vars, stack_t **head)
 	}
 	while (stack != NULL)
 	{
-		if (stack->n == 0 || stack->n < 0 || stack->n > 255)
+		if (stack->n == 0 || stack->n < 0 || stack->n > 126)
 		{
 			i++;
 			break;

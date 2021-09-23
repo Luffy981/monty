@@ -63,9 +63,9 @@ char pchar_monty(vars_t *vars, stack_t **head)
 		exit(EXIT_FAILURE);
 	}
 
-	if (node->n < 0 || node->n > 255)
+	if (node->n < 0 || node->n > 126)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range", vars->line_number);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", vars->line_number);
 		exit(EXIT_FAILURE);
 	}
 		putchar(node->n);

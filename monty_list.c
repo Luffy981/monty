@@ -58,11 +58,11 @@ char add_dnodeint(vars_t *list, stack_t **head)
 int check_int(char *str)
 {
 	int i = 0;
-    
-    if (atoi(str) < 0 || str[i] == '-')
-    {
-        i++;
-    }
+
+	if (atoi(str) < 0 || str[i] == '-')
+	{
+		i++;
+	}
 
 	while (str[i] != '\0')
 	{

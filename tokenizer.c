@@ -54,22 +54,20 @@ char **tokenizer(char *buffer, char *delimiter)
 char *str_tok(char *buffer, char *d)
 {
 	static char *save;
-	char *string = NULL;
-	char *set = NULL;
+	char *string = NULL, *set = NULL;
 
 	buffer = buffer ? buffer : save;
 	if (*buffer != '\0')
 	{
 		while (*buffer == ' ' || *buffer == '\n' || *buffer == '\t')
 		{
-            if(*buffer == '\n')
-            {
-                set = buffer;
-                set++;
-                string = "salto";
-                save= set;
-                return(string);
-            }
+			if (*buffer == '\n')
+			{
+				set = buffer, set++;
+				string = "salto";
+				save = set;
+				return (string);
+			}
 			buffer++;
 		}
 		set = buffer;

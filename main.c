@@ -25,8 +25,7 @@ void free_dlistint(stack_t *head)
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	vars_t vars = {NULL};
-	char *delim = "\n\t";
-	char (*f)(vars_t *r, stack_t **p);
+	char *delim = "\n\t", (*f)(vars_t *r, stack_t **p);
 	int a;
 	stack_t *head = NULL;
 
@@ -62,8 +61,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			free(vars.tokens);
 		}
 	}
-	free(vars.arrays);
-	free(vars.buffer);
+	free(vars.arrays), free(vars.buffer);
 	free_dlistint(head);
 	return (1);
 }

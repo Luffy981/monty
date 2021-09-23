@@ -11,9 +11,9 @@ char add_monty(vars_t *vars, stack_t **head)
 	int sum = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
-    int count;
+	int count;
 
-    count = len_stack(&*head);
+	count = len_stack(&*head);
 
 	if (count < 2)
 	{
@@ -53,9 +53,9 @@ char sub_monty(vars_t *vars, stack_t **head)
 	int sub = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
-    int count;
+	int count;
 
-    count = len_stack(&*head);
+	count = len_stack(&*head);
 
 	if (count < 2)
 	{
@@ -82,8 +82,9 @@ char div_monty(vars_t *vars, stack_t **head)
 	int div = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
-    int count;
-    count = len_stack(&*head);
+	int count;
+
+	count = len_stack(&*head);
 
 	if (count < 2)
 	{
@@ -115,8 +116,9 @@ char mul_monty(vars_t *vars, stack_t **head)
 	int mul = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
-    int count;
-    count = len_stack(&*head);
+	int count;
+
+	count = len_stack(&*head);
 
 	if (count < 2)
 	{

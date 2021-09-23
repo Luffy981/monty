@@ -12,8 +12,9 @@ char mod_monty(vars_t *vars, stack_t **head)
 	int mod = 0;
 	stack_t *node = *head;
 	stack_t *tmp = *head;
-    int count;
-    count = len_stack(&*head);
+	int count;
+
+	count = len_stack(&*head);
 
 	if (count < 2)
 	{
@@ -57,7 +58,7 @@ char pchar_monty(vars_t *vars, stack_t **head)
 {
 	stack_t *node = *head;
 
-    if (node == NULL)
+	if (node == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", vars->line_number);
 		exit(EXIT_FAILURE);

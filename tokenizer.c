@@ -60,7 +60,7 @@ char *str_tok(char *buffer, char *d)
 	buffer = buffer ? buffer : save;
 	if (*buffer != '\0')
 	{
-		while (*buffer == ' ' || *buffer == '\n')
+		while (*buffer == ' ' || *buffer == '\n' || *buffer == '\t')
 		{
 			buffer++;
 		}
@@ -71,7 +71,7 @@ char *str_tok(char *buffer, char *d)
 		} else
 		{
 			string = set;
-			while (*set != *d && *set != '\0')
+			while (*set != *d && *(set) != *(d + 1) && *set != '\0')
 			{
 				set++;
 			}

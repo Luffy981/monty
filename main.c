@@ -26,11 +26,12 @@ void free_dlistint(stack_t *head)
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	vars_t vars = {NULL};
-	char *delim = "\n";
+	char *delim = "\n\t";
 	char (*f)(vars_t *r, stack_t **p);
 	int a;
 	stack_t *head = NULL;
 
+	vars.mode = "stack";
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");

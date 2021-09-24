@@ -19,13 +19,13 @@ char mod_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	if (node->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 
@@ -63,14 +63,14 @@ char pchar_monty(vars_t *vars, stack_t **head)
 	if (node == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node->n < 0 || node->n > 126)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	putchar(node->n);
@@ -94,7 +94,7 @@ char swap_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*head)->n;

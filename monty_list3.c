@@ -42,7 +42,7 @@ char pstr_monty(vars_t *vars, stack_t **head)
 	if (buffer == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	while (stack != NULL)
@@ -61,14 +61,14 @@ char pstr_monty(vars_t *vars, stack_t **head)
 			if (buffer == NULL)
 			{
 				fprintf(stderr, "Error: realloc failed\n");
-                free_monty(vars, *head);
+				free_monty(vars, *head);
 				exit(EXIT_FAILURE);
 			}
 		}
 	}
 	buffer[i] = '\0';
 	printf("%s\n", buffer);
-    free(buffer);
+	free(buffer);
 	return (0);
 }
 
@@ -86,7 +86,7 @@ char pop_nodeint_at_stack(vars_t *vars, stack_t **head)
 	if (head == NULL || *head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", vars->line_number);
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *head;

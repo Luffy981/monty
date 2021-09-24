@@ -48,16 +48,16 @@ int main(__attribute__((unused)) int argc, char **argv)
 				continue;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
 			if (vars.tokens[0][0] == '#')
-            {
-                free(vars.tokens);
-                continue;
-            }
+			{
+				free(vars.tokens);
+				continue;
+			}
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",
-                        vars.line_number, vars.arrays[a]);
-                free_monty(&vars, head);
+					vars.line_number, vars.arrays[a]);
+				free_monty(&vars, head);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -70,7 +70,7 @@ int main(__attribute__((unused)) int argc, char **argv)
     free(vars.buffer);
     if(!vars.tokens)
     {
-        free(vars.tokens);
-    } 
-	return (1);
+	    free(vars.tokens);
+    }
+    return (1);
 }

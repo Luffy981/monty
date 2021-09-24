@@ -88,7 +88,7 @@ char add_node_end(vars_t *vars, stack_t **head)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-        free_monty(vars, *head);
+		free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = atoi(vars->tokens[1]);

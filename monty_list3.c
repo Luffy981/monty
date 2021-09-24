@@ -28,8 +28,7 @@ int len_stack(stack_t **head)
 char pstr_monty(vars_t *vars, stack_t **head)
 {
 	char *buffer = NULL;
-	size_t m = 1;
-	size_t i = 0;
+	size_t m = 1, i = 0;
 	stack_t *stack = *head;
 
 	UNUSED(vars);
@@ -52,9 +51,7 @@ char pstr_monty(vars_t *vars, stack_t **head)
 			i++;
 			break;
 		}
-		buffer[i] = stack->n;
-		stack = stack->next;
-		i++;
+		buffer[i] = stack->n, stack = stack->next, i++;
 		if (i >= m)
 		{
 			buffer = _realloc(buffer, sizeof(char) * i, sizeof(char) * (i + 1));

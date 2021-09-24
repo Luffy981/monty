@@ -25,8 +25,7 @@ void free_dlistint(stack_t *head)
 int  main(int argc, char **argv)
 {
 	vars_t vars = {NULL};
-	char *delim = "\n\t", (*f)(vars_t *r, stack_t **p);
-	int a;
+	char *delim = "\n\t";
 	stack_t *head = NULL;
 
 	vars.mode = "stack";
@@ -41,36 +40,46 @@ int  main(int argc, char **argv)
 		printf("Data invalid");
 	else
 	{
-		for (a = 0 ; vars.arrays[a]  != NULL ; a++)
-		{
-			vars.line_number = a + 1;
-			if (strcmp(vars.arrays[a], "salto") == 0)
-				continue;
-			vars.tokens = tokenizer(vars.arrays[a], " ");
-			if (vars.tokens[0][0] == '#')
-			{
-				free(vars.tokens);
-				continue;
-			}
-			f = get_op_fuctions(&vars, &head);
-			if (f == NULL)
-			{
-				fprintf(stderr, "L%d: unknown instruction %s\n",
-					vars.line_number, vars.arrays[a]);
-				free_monty(&vars, head);
-				exit(EXIT_FAILURE);
-			}
-			else
-				f(&vars, &head);
-			free(vars.tokens);
-		}
+		vodka(&vars, &head);
 	}
-    free_dlistint(head);
-    free(vars.arrays);
-    free(vars.buffer);
-    if(!vars.tokens)
-    {
-	    free(vars.tokens);
-    }
-    exit(EXIT_SUCCESS);
+	free_dlistint(head), free(vars.arrays), free(vars.buffer);
+	if (!vars.tokens)
+	{
+		free(vars.tokens);
+	}
+	exit(EXIT_SUCCESS);
+}
+/**
+ * vodka - item counter in a stack
+ * @head: double stack pointer
+ * @vars: counter
+ */
+void vodka(vars_t *vars, stack_t **head)
+{
+	int a;
+	char (*f)(vars_t *m, stack_t **head);
+
+	for (a = 0 ; vars->arrays[a] != NULL ; a++)
+	{
+		vars->line_number = a + 1;
+		if (strcmp(vars->arrays[a], "salto") == 0)
+			continue;
+		vars->tokens = tokenizer(vars->arrays[a], " ");
+		if (vars->tokens[0][0] == '#')
+		{
+			free(vars->tokens);
+			continue;
+		}
+		f = get_op_fuctions(vars, &*head);
+		if (f == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n",
+				vars->line_number, vars->arrays[a]);
+			free_monty(vars, *head);
+			exit(EXIT_FAILURE);
+			}
+		else
+			f(vars, &*head);
+		free(vars->tokens);
+	}
 }

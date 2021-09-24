@@ -105,7 +105,7 @@ char push_monty(vars_t *vars, stack_t **head);
 
 void free_monty(vars_t *vars, stack_t *head);
 
-
+void vodka(vars_t *vars, stack_t **head);
 
 
 int len_stack(stack_t **head);

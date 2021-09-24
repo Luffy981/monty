@@ -18,6 +18,7 @@ char add_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	sum = node->n + node->next->n;
@@ -60,7 +61,8 @@ char sub_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", vars->line_number);
-		exit(EXIT_FAILURE);
+		free_monty(vars, *head);
+        exit(EXIT_FAILURE);
 	}
 	sub = node->next->n - node->n;
 	node->next->n = sub;
@@ -89,11 +91,13 @@ char div_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	if (node->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	div = node->next->n / node->n;
@@ -123,6 +127,7 @@ char mul_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	mul = node->n * node->next->n;

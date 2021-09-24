@@ -61,7 +61,14 @@ int main(__attribute__((unused)) int argc, char **argv)
 			free(vars.tokens);
 		}
 	}
-	free(vars.buffer);
-	free(vars.arrays);
+    a = 3;
+    for(; a > 0 ; a--)
+    {
+
+        vars.arrays[a] = NULL;
+    }
+    free(vars.arrays);
+    free(vars.buffer);
+    free(vars.tokens);
 	return (1);
 }

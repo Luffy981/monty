@@ -8,7 +8,7 @@
  */
 char rotl_monty(vars_t *vars, stack_t **head)
 {
-	stack_t *tmp = *head;
+    stack_t *tmp = *head;
 	stack_t *set = *head;
 	int count;
 
@@ -36,7 +36,7 @@ char rotl_monty(vars_t *vars, stack_t **head)
  */
 char rotr_monty(vars_t *vars, stack_t **head)
 {
-	int i = 0;
+	/*  int i = 0;
 	int count = 0;
 	stack_t *node = *head;
 	stack_t *vodka = NULL;
@@ -70,6 +70,48 @@ char rotr_monty(vars_t *vars, stack_t **head)
 		i++;
 	}
 	return (0);
+    stack_t *tmp = *head;
+	stack_t *set = *head;
+	int count;
+
+	count = len_stack(&*head);
+	if (count < 2)
+		return (0);
+
+	UNUSED(vars);
+    while (tmp->next != NULL)
+    {
+        tmp = tmp->next;
+    }
+    tmp->next = *head;
+    *head = set->next;
+    set->prev = NULL;
+    while (set->next != tmp)
+    {
+        set = set->next;
+    }
+    tmp->prev = set;
+	return (0);*/
+    stack_t *tmp = *head;
+	stack_t *set = *head;
+	int count;
+
+	count = len_stack(&*head);
+	if (count < 2)
+		return (0);
+
+	UNUSED(vars);
+	*head = tmp->next;
+	(*head)->prev = NULL;
+	while (set->next != NULL)
+	{
+		set = set->next;
+	}
+	set->next = tmp;
+	tmp->prev = set;
+	tmp->next = NULL;
+	return (0);
+
 }
 
 /**

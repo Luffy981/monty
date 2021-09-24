@@ -58,13 +58,11 @@ void vodka(vars_t *vars, stack_t **head)
 {
 	int a;
 	char (*f)(vars_t *m, stack_t **head);
-	int m;
-	int n;
 
 	for (a = 0 ; vars->arrays[a] != NULL ; a++)
 	{
 		vars->line_number = a + 1;
-		if (a >= 1)
+		/*  if (a >= 1)
 		{
 			m = strcmp(vars->arrays[a - 1], "rotr");
 			n = strcmp(vars->arrays[a], "rotr");
@@ -72,7 +70,7 @@ void vodka(vars_t *vars, stack_t **head)
 			{
 				continue;
 			}
-		}
+		}*/
 		if (strcmp(vars->arrays[a], "salto") == 0)
 			continue;
 		vars->tokens = tokenizer(vars->arrays[a], " ");

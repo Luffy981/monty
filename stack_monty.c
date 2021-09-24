@@ -8,7 +8,7 @@
  */
 char rotl_monty(vars_t *vars, stack_t **head)
 {
-    stack_t *tmp = *head;
+	stack_t *tmp = *head;
 	stack_t *set = *head;
 	int count;
 
@@ -36,63 +36,7 @@ char rotl_monty(vars_t *vars, stack_t **head)
  */
 char rotr_monty(vars_t *vars, stack_t **head)
 {
-	/*  int i = 0;
-	int count = 0;
-	stack_t *node = *head;
-	stack_t *vodka = NULL;
-
-	UNUSED(vars);
-	if (node == NULL)
-		return (0);
-	while (node->next != NULL)
-	{
-		node = node->next;
-		count++;
-	}
-	*head = node;
-	while (i < count)
-	{
-		vodka = node->prev;
-		vodka->next = NULL;
-		node->prev = NULL;
-		node->next = vodka;
-		node = node->next;
-		i++;
-	}
-	i = 0;
-	node = *head;
-	while (i < count)
-	{
-		vodka = node->next;
-		vodka->prev = node;
-		node = node->next;
-		vodka = vodka->next;
-		i++;
-	}
-	return (0);
-    stack_t *tmp = *head;
-	stack_t *set = *head;
-	int count;
-
-	count = len_stack(&*head);
-	if (count < 2)
-		return (0);
-
-	UNUSED(vars);
-    while (tmp->next != NULL)
-    {
-        tmp = tmp->next;
-    }
-    tmp->next = *head;
-    *head = set->next;
-    set->prev = NULL;
-    while (set->next != tmp)
-    {
-        set = set->next;
-    }
-    tmp->prev = set;
-	return (0);*/
-    stack_t *tmp = *head;
+	stack_t *tmp = *head;
 	stack_t *set = *head;
 	int count;
 

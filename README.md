@@ -115,20 +115,48 @@ pall This is the end of our program. Monty is awesome!$
 julien@ubuntu:~/monty$
 ```
 
+### :bookmark_tabs: Features
+***
+#### Opcodes
+`monty` executes the following opcodes:
+
+| Opcode | Description|
+| --- | --- |
+| `push` | Pushes an element to the stack. |
+| `pall` |Prints all the values on the stack. |
+| `pint` | Prints the value at the top of the stack. |
+| `pop` | Removes the top element of the stack. |
+| `swap` | Swaps the top two elements of the stack. |
+| `queue` | Sets the format of the data to a queue (FIFO). |
+| `stack` | Sets the format of the data to a stack (LIFO). |
+| `nop` | Doesn't do anything. |
+| `add` | Adds the top two elements of the stack. |
+| `sub` | Subtracts the top element of the stack from the second top element of the stack. |
+| `mul` | Multiplies the second top element of the stack with the top element of the stack. |
+| `div` | Divides the second top element of the stack by the top element of the stack. |
+| `mod` | Computes the rest of the division of the second top element of the stack by the top element of the stack. |
+| `pchar` | Prints the char at the top of the stack. |
+| `pstr` | Prints the string starting at the top of the stack. |
+| `rotl` | Rotates the stack to the top. |
+| `rotr` | Rotates the stack to the bottom. |
+
 ### ✏️ Project files
 ***
 The following files are those implemented in the FIFO and LIFO project:
 
 | Files | Description |
 | --- | --- |
-| []() |  |
-| []() |  |
-| []() |  |
-| []() |  |
-| []() |  |
-| []() |  |
-| []() |  |
-| []() |  |
+| [free_monty.c](https://github.com/Luffy981/monty/blob/master/free_monty.c) |  Function to function to match the inserted command. |
+| [get_op_func.c](https://github.com/Luffy981/monty/blob/master/get_op_func.c) | File where it is done in match with the functions. |
+| [main.c](https://github.com/Luffy981/monty/blob/master/main.c) | Main function and memory free function. |
+| [monty.h](https://github.com/Luffy981/monty/blob/master/monty.h) | Library used to work on project. |
+| [monty_list.c](https://github.com/Luffy981/monty/blob/master/monty_list.c) | Opcode functions. |
+| [monty_list1.c](https://github.com/Luffy981/monty/blob/master/monty_list1.c) | Opcode functions. |
+| [monty_list2.c](https://github.com/Luffy981/monty/blob/master/monty_list2.c) | Opcode functions. |
+| [monty_list3.c](https://github.com/Luffy981/monty/blob/master/monty_list3.c) | Opcode functions. |
+| [read_file.c](https://github.com/Luffy981/monty/blob/master/read_file.c) | Function that opens the files to be viewed. |
+| [stack_monty.c](https://github.com/Luffy981/monty/blob/master/stack_monty.c) | The default behavior of the program. |
+| [tokenizer.c](https://github.com/Luffy981/monty/blob/master/tokenizer.c) | Functions used to manipulate strings. |
 
 ### ✒️ Autors
 ***

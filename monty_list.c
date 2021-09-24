@@ -109,6 +109,7 @@ char print_nodeint_at_stack(vars_t *vars, stack_t **head)
 	if (node == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", node->n);

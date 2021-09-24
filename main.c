@@ -48,7 +48,10 @@ int main(__attribute__((unused)) int argc, char **argv)
 				continue;
 			vars.tokens = tokenizer(vars.arrays[a], " ");
 			if (vars.tokens[0][0] == '#')
-				continue;
+            {
+                free(vars.tokens);
+                continue;
+            }
 			f = get_op_fuctions(&vars, &head);
 			if (f == NULL)
 			{
@@ -61,14 +64,11 @@ int main(__attribute__((unused)) int argc, char **argv)
 			free(vars.tokens);
 		}
 	}
-    a = 3;
-    for(; a > 0 ; a--)
-    {
-
-        vars.arrays[a] = NULL;
-    }
     free(vars.arrays);
     free(vars.buffer);
-    free(vars.tokens);
+    if(!vars.tokens)
+    {
+        free(vars.tokens);
+    } 
 	return (1);
 }

@@ -83,6 +83,7 @@ char pop_nodeint_at_stack(vars_t *vars, stack_t **head)
 	if (head == NULL || *head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *head;

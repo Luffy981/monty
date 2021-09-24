@@ -19,11 +19,13 @@ char mod_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	if (node->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 
@@ -92,6 +94,7 @@ char swap_monty(vars_t *vars, stack_t **head)
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", vars->line_number);
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*head)->n;

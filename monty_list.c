@@ -32,11 +32,13 @@ char add_dnodeint(vars_t *list, stack_t **head)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+        free_monty(list, *head);
 		exit(EXIT_FAILURE);
 	}
 	if (list->tokens[1] == NULL || check_int(list->tokens[1]) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", list->line_number);
+        free_monty(list, *head);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = atoi(list->tokens[1]);

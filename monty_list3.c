@@ -42,6 +42,7 @@ char pstr_monty(vars_t *vars, stack_t **head)
 	if (buffer == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+        free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
 	while (stack != NULL)
@@ -60,12 +61,14 @@ char pstr_monty(vars_t *vars, stack_t **head)
 			if (buffer == NULL)
 			{
 				fprintf(stderr, "Error: realloc failed\n");
+                free_monty(vars, *head);
 				exit(EXIT_FAILURE);
 			}
 		}
 	}
 	buffer[i] = '\0';
 	printf("%s\n", buffer);
+    free(buffer);
 	return (0);
 }
 

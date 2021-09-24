@@ -22,7 +22,7 @@ void free_dlistint(stack_t *head)
  * @argv: Array of arguments of main.
  * Return: 1 if succes
  */
-int main(__attribute__((unused)) int argc, char **argv)
+int  main(int argc, char **argv)
 {
 	vars_t vars = {NULL};
 	char *delim = "\n\t", (*f)(vars_t *r, stack_t **p);
@@ -72,5 +72,5 @@ int main(__attribute__((unused)) int argc, char **argv)
     {
 	    free(vars.tokens);
     }
-    return (1);
+    exit(EXIT_FAILURE);
 }

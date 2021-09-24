@@ -72,5 +72,5 @@ int  main(int argc, char **argv)
     {
 	    free(vars.tokens);
     }
-    exit(EXIT_FAILURE);
+    exit(EXIT_SUCCESS);
 }

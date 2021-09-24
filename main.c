@@ -53,7 +53,8 @@ int main(__attribute__((unused)) int argc, char **argv)
 			if (f == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",
-					vars.line_number, vars.arrays[a]);
+                        vars.line_number, vars.arrays[a]);
+                free_monty(&vars, head);
 				exit(EXIT_FAILURE);
 			}
 			else

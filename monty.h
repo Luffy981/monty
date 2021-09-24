@@ -103,6 +103,7 @@ char add_node_end(vars_t *vars, stack_t **head);
 char mode_monty(vars_t *vars, stack_t **head);
 char push_monty(vars_t *vars, stack_t **head);
 
+void free_monty(vars_t *vars, stack_t *head);
 
 
 

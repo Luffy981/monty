@@ -71,7 +71,7 @@ char pchar_monty(vars_t *vars, stack_t **head)
         free_monty(vars, *head);
 		exit(EXIT_FAILURE);
 	}
-		putchar(node->n);
+	putchar(node->n);
 	putchar('\n');
 	return (0);
 }

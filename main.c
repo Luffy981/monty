@@ -64,6 +64,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			free(vars.tokens);
 		}
 	}
+    free_dlistint(head);
     free(vars.arrays);
     free(vars.buffer);
     if(!vars.tokens)
